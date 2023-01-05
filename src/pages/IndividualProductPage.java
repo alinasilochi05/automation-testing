@@ -14,7 +14,13 @@ public class IndividualProductPage {
 
     public void setSizeOption(String sizeOptions) {
        WebElement size = this.chromeDriver.findElement(sizeDropdown);
-        Select selectOption= new Select(size);
-        selectOption.selectByVisibleText("75ml $30.00 ");
+        Select selectOptions = new Select(size);
+        selectOptions.selectByVisibleText(sizeOptions);
+    }
+
+    public String getSelectedSize(){
+        WebElement size = this.chromeDriver.findElement(sizeDropdown);
+        Select selectOptions = new Select(size);
+       return selectOptions.getFirstSelectedOption().getText();
     }
 }

@@ -22,8 +22,8 @@ public class TestIndividualProduct extends TestBase {
        this.categoryMenuPage.hoverOverElement(5);
        this.categoryMenuPage.clickToSubmenuCategory(5, 2);
        this.productsCategoryPage.clickOnProduct(1);
-       this.individualProductPage.setSizeOption("50ml $20.00 ");
-        
+       this.individualProductPage.setSizeOption("50ml $20.00");
+       Assert.assertEquals(this.individualProductPage.getSelectedSize(), "50ml $20.00");
 
     }
 }
