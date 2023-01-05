@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 public class IndividualProductPage {
     WebDriver chromeDriver;
     By sizeDropdown = By.id("option330");
+    By quantityInput = By.id("product_quantity");
     public IndividualProductPage(WebDriver chromeDriver){
         this.chromeDriver = chromeDriver;
     }
@@ -22,5 +23,12 @@ public class IndividualProductPage {
         WebElement size = this.chromeDriver.findElement(sizeDropdown);
         Select selectOptions = new Select(size);
        return selectOptions.getFirstSelectedOption().getText();
+    }
+
+    public void deleteFromInputText(){
+      chromeDriver.findElement(quantityInput).clear();
+    }
+    public void setQuantityInput(String quantity){
+        this.chromeDriver.findElement(quantityInput).sendKeys(quantity);
     }
 }
