@@ -26,6 +26,7 @@ public class TestIndividualProduct extends TestBase {
         this.categoryMenuPage.clickToSubmenuCategory(5, 2);
         this.productsCategoryPage.clickOnProduct(1);
         this.individualProductPage.setSizeOption(sizeOption);
-        Assert.assertEquals(this.individualProductPage.getSelectedSize(), sizeOption);
+        Assert.assertEquals(this.individualProductPage.selectSize(), sizeOption);
     }
+
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import static java.lang.Integer.parseInt;
+
 public class IndividualProductPage {
     WebDriver chromeDriver;
     By sizeDropdown = By.id("option330");
@@ -21,7 +23,7 @@ public class IndividualProductPage {
        selectOptions.selectByVisibleText(sizeOptions);
     }
 
-    public String getSelectedSize(){
+    public String selectSize(){
         WebElement size = this.chromeDriver.findElement(sizeDropdown);
         Select selectOptions = new Select(size);
        return selectOptions.getFirstSelectedOption().getText();
@@ -35,7 +37,15 @@ public class IndividualProductPage {
         this.chromeDriver.findElement(quantityInput).sendKeys(quantity);
     }
 
-    private String getBasePrice(){
-        return this.chromeDriver.findElement(basePrice).getText();
+    private float getBasePrice(){
+        return Float.parseFloat(this.chromeDriver.findElement(basePrice).getText().substring(1));
     }
+    public int getQuantity(){
+      return parseInt(this.chromeDriver.findElement(quantityInput).getText());
+    }
+
+    public float calculateFinalPrice() {
+        return  getQuantity() * getBasePrice();
+    }
+
 }
