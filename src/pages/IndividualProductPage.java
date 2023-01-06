@@ -15,7 +15,8 @@ public class IndividualProductPage {
     By quantityInput = By.id("product_quantity");
     By finalPrice = By.xpath("//*[@id=\"product\"]/fieldset/div[3]/label/span");
     By basePrice = By.xpath("//*[@id=\"product_details\"]/div/div[2]/div/div/div[1]/div/div");
-
+    By addToWishListText = By.xpath("//*[@id=\"product\"]/fieldset/div[6]/a[2]");
+    By removeFromWishList = By.xpath("//*[@id=\"product\"]/fieldset/div[6]");
     public IndividualProductPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
@@ -57,5 +58,13 @@ public class IndividualProductPage {
     public float calculateFinalPrice(int quantity) {
         return quantity * this.getBasePrice();
     }
+
+    public void clickOnAddToWishList(){
+        this.chromeDriver.findElement(addToWishListText).click();
+    }
+    public String getTextFromRemoveFromWishlist(){
+        return chromeDriver.findElement(removeFromWishList).getText();
+    }
+
 
 }

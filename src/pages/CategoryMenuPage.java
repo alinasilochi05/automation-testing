@@ -10,14 +10,6 @@ public class CategoryMenuPage extends PageBase {
     WebDriver chromeDriver;
     Actions actions;
     UtilsHandler utilsHandler;
-    By apparelAndAccessoriesSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[2]/a");
-    By makeupSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[3]/a");
-    By skincareSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[4]/a");
-    By fragranceSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[5]/a");
-    By menSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[6]/a");
-    By hairCareSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[7]/a");
-    By BooksSection = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[8]/a");
-    By cheeksSubcategory = By.xpath("//*[@id=\"categorymenu\"]/nav/ul/li[3]/div/ul[1]/li[1]/a");
 
 
     public CategoryMenuPage(WebDriver chromeDriver) {
