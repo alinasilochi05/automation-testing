@@ -1,6 +1,8 @@
 package pages;
 
+import com.google.common.collect.BoundType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -13,39 +15,47 @@ public class IndividualProductPage {
     By quantityInput = By.id("product_quantity");
     By finalPrice = By.xpath("//*[@id=\"product\"]/fieldset/div[3]/label/span");
     By basePrice = By.xpath("//*[@id=\"product_details\"]/div/div[2]/div/div/div[1]/div/div");
-    public IndividualProductPage(WebDriver chromeDriver){
+
+    public IndividualProductPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
 
     public void setSizeOption(String sizeOptions) {
-       WebElement size = this.chromeDriver.findElement(sizeDropdown);
-       Select selectOptions = new Select(size);
-       selectOptions.selectByVisibleText(sizeOptions);
-    }
-
-    public String selectSize(){
         WebElement size = this.chromeDriver.findElement(sizeDropdown);
         Select selectOptions = new Select(size);
-       return selectOptions.getFirstSelectedOption().getText();
+        selectOptions.selectByVisibleText(sizeOptions);
     }
 
-    public void deleteFromInputText(){
-      chromeDriver.findElement(quantityInput).clear();
+    public String selectSize() {
+        WebElement size = this.chromeDriver.findElement(sizeDropdown);
+        Select selectOptions = new Select(size);
+        return selectOptions.getFirstSelectedOption().getText();
     }
 
-    public void setQuantityInput(String quantity){
-        this.chromeDriver.findElement(quantityInput).sendKeys(quantity);
+    public void deleteFromInputText() {
+        this.chromeDriver.findElement(quantityInput).clear();
     }
 
-    private float getBasePrice(){
+    public void setQuantityInput(String quantity) {
+        this.chromeDriver.findElement(quantityInput).sendKeys((quantity));
+    }
+
+    public float getFinalPrice() {
+        String stringFinalPrice = this.chromeDriver.findElement(finalPrice).getText().substring(1);
+        String parsedStringFinalPrice = stringFinalPrice.replace(",", "");
+        return Float.parseFloat(parsedStringFinalPrice);
+    }
+
+    private float getBasePrice() {
         return Float.parseFloat(this.chromeDriver.findElement(basePrice).getText().substring(1));
     }
-    public int getQuantity(){
-      return parseInt(this.chromeDriver.findElement(quantityInput).getText());
+
+    public float getQuantity() {
+        return Float.parseFloat(this.chromeDriver.findElement(quantityInput).getText());
     }
 
-    public float calculateFinalPrice() {
-        return  getQuantity() * getBasePrice();
+    public float calculateFinalPrice(int quantity) {
+        return quantity * this.getBasePrice();
     }
 
 }
