@@ -28,5 +28,16 @@ public class TestIndividualProduct extends TestBase {
         this.individualProductPage.setSizeOption(sizeOption);
         Assert.assertEquals(this.individualProductPage.selectSize(), sizeOption);
     }
-
+    @Test
+    public void changeQuantityOfProduct() throws InterruptedException {
+        int quantity = 30;
+        this.categoryMenuPage.hoverOverElement(5);
+        this.categoryMenuPage.clickToSubmenuCategory(5, 2);
+        this.productsCategoryPage.clickOnProduct(1);
+        this.individualProductPage.deleteFromInputText();
+        this.individualProductPage.setQuantityInput(String.valueOf(quantity));
+        Thread.sleep(1000);
+        Assert.assertEquals(this.individualProductPage.getFinalPrice(),
+                this.individualProductPage.calculateFinalPrice(quantity));
+    }
 }
