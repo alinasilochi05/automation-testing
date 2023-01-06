@@ -21,4 +21,9 @@ public class TestNavBar extends TestBase{
         Assert.assertEquals(this.editAccountDetailsPage.getEditAccountDetailsTitlePage(), String.format("%S", "My Account Information"));
 
     }
+
+    @Test
+    public void searchCategoryProductWithSearchBar(){
+        this.navBarPage.setSearchBar("gucci");
+    }
 }

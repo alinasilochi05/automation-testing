@@ -9,11 +9,13 @@ import org.openqa.selenium.interactions.Actions;
 public class NavBarPage {
     WebDriver chromeDriver;
     Actions actions;
+    SearchPage searchPage;
     By searchBar = By.id("filter_keyword");
 
     public NavBarPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
         this.actions = new Actions(chromeDriver);
+        this.searchPage = new SearchPage(chromeDriver);
     }
 
     public void hoverElement(int sectionNumber) {
