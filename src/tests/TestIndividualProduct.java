@@ -40,4 +40,11 @@ public class TestIndividualProduct extends TestBase {
         Assert.assertEquals(this.individualProductPage.getFinalPrice(),
                 this.individualProductPage.calculateFinalPrice(quantity));
     }
+    @Test
+    public void addProductToWishList(){
+        this.categoryMenuPage.hoverOverElement(5);
+        this.categoryMenuPage.clickToSubmenuCategory(5, 2);
+        this.productsCategoryPage.clickOnProduct(1);
+        this.individualProductPage.clickOnAddToWishList();
+    }
 }
