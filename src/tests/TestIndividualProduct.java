@@ -46,5 +46,6 @@ public class TestIndividualProduct extends TestBase {
         this.categoryMenuPage.clickToSubmenuCategory(5, 2);
         this.productsCategoryPage.clickOnProduct(1);
         this.individualProductPage.clickOnAddToWishList();
+        Assert.assertEquals(this.individualProductPage.getTextFromRemoveFromWishlist(), " Remove from wish list");
     }
 }
