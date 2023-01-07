@@ -5,12 +5,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class NavBarPage {
     WebDriver chromeDriver;
     Actions actions;
     SearchPage searchPage;
     By searchBar = By.id("filter_keyword");
+    By mainMenuDropdown = By.xpath("//*[@id=\"topnav\"]/select");
+
 
     public NavBarPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
@@ -31,5 +34,14 @@ public class NavBarPage {
       WebElement searchedWord =  chromeDriver.findElement(searchBar);
       searchedWord.sendKeys(keyWord);
       searchedWord.sendKeys(Keys.ENTER);
+    }
+    public void FullScreen_selectCategoryFromMainMenu(int categoryNumber){
+        WebElement mainMenuCategory = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"main_menu_top\"]/li[%d]", categoryNumber)));
+        mainMenuCategory.click();
+    }
+    public void SmallScreen_selectCategoryFromMainMenu(String category){
+     WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
+     Select selectCategory = new Select(mainMenu);
+     selectCategory.selectByVisibleText(category);
     }
 }
