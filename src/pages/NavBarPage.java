@@ -39,9 +39,10 @@ public class NavBarPage {
         WebElement mainMenuCategory = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"main_menu_top\"]/li[%d]", categoryNumber)));
         mainMenuCategory.click();
     }
-    public void SmallScreen_selectCategoryFromMainMenu(String category){
+    public void SmallScreen_selectCategoryFromMainMenu(int index){
      WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
      Select selectCategory = new Select(mainMenu);
-     selectCategory.selectByVisibleText(category);
+     selectCategory.selectByIndex(index);
     }
+
 }

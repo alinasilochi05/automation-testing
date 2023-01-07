@@ -3,6 +3,7 @@ package tests;
 import constants.Urls;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.EditAccountDetailsPage;
 import pages.NavBarPage;
 import pages.SearchPage;
@@ -11,11 +12,13 @@ public class TestNavBar extends TestBase{
     NavBarPage navBarPage;
     EditAccountDetailsPage editAccountDetailsPage;
     SearchPage searchPage;
+    CartPage cartPage;
     public TestNavBar(){
         super(Urls.signin);
         this.navBarPage = new NavBarPage(chromeDriver);
         this.editAccountDetailsPage = new EditAccountDetailsPage(chromeDriver);
         this.searchPage = new SearchPage(chromeDriver);
+        this.cartPage = new CartPage(chromeDriver);
     }
     @Test
     public void openCustomerMenuCategory(){
@@ -32,7 +35,9 @@ public class TestNavBar extends TestBase{
     }
 
     @Test
-    public void selectMainMenuCategory(){
-        this.navBarPage.SmallScreen_selectCategoryFromMainMenu(" Specials");
+    public void openMainMenuCategory(){
+        this.navBarPage.SmallScreen_selectCategoryFromMainMenu(5);
+        Assert.assertEquals(this.cartPage.getSuccessTitleForCartPage(), "SHOPPING CART");
+
     }
 }
