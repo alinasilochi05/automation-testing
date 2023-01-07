@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 public class CartPage {
     WebDriver chromeDriver;
     By successTitle = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/h1/span");
-    By guantityInput = By.id("cart_quantity65");
+    By quantityInput = By.id("cart_quantity65");
     By removeButton = By.xpath("//*[@id=\"cart\"]/div/div[1]/table/tbody/tr[2]/td[7]/a");
     By checkoutButton = By.id("cart_checkout2");
     By updateButton = By.id("cart_update");
@@ -18,6 +18,24 @@ public class CartPage {
     }
     public String getSuccessTitleForCartPage(){
         return chromeDriver.findElement(successTitle).getText();
+    }
+    public void deleteValueFromInput(){
+        chromeDriver.findElement(quantityInput).clear();
+    }
+    public void setQuantityInput(String quantity){
+       chromeDriver.findElement(quantityInput).sendKeys(quantity);
+    }
+    public void clickToRemoveButton(){
+        chromeDriver.findElement(removeButton).click();
+    }
+    public void clickToUpdateButton(){
+        chromeDriver.findElement(updateButton).click();
+    }
+    public void clickToContinueShoppingButton(){
+        chromeDriver.findElement(continueShoppingButton).click();
+    }
+    public void clickToCheckoutButton(){
+        chromeDriver.findElement(checkoutButton).click();
     }
 
 }
