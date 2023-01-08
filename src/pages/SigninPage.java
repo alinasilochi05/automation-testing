@@ -9,10 +9,8 @@ public class SigninPage {
     By loginNameInput = By.id("loginFrm_loginname");
     By passwordInput = By.id("loginFrm_password");
     By loginButton = By.xpath("//button[@title='Login']");
-    By actualLoginTitle = By.xpath("//*[@id='maincontainer']/div/div/div/div/div[2]/h2");
 
-    public SigninPage(WebDriver chromeDriver)
-    {
+    public SigninPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
 
@@ -21,12 +19,11 @@ public class SigninPage {
 
     }
 
-    public void setLoginPassword(String password){
-
+    public void setLoginPassword(String password) {
         this.chromeDriver.findElement(passwordInput).sendKeys(password);
     }
 
-    public void clickLogin(){
+    public void clickLogin() {
         this.chromeDriver.findElement(loginButton).click();
     }
 }

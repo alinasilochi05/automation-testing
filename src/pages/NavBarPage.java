@@ -30,19 +30,22 @@ public class NavBarPage {
         WebElement submenuCategory = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"customer_menu_top\"]/li/ul/li[%d]", subcategoryNumber)));
         submenuCategory.click();
     }
-    public void setSearchBar(String keyWord){
-      WebElement searchedWord =  chromeDriver.findElement(searchBar);
-      searchedWord.sendKeys(keyWord);
-      searchedWord.sendKeys(Keys.ENTER);
+
+    public void setSearchBar(String keyWord) {
+        WebElement searchedWord = chromeDriver.findElement(searchBar);
+        searchedWord.sendKeys(keyWord);
+        searchedWord.sendKeys(Keys.ENTER);
     }
-    public void FullScreen_selectCategoryFromMainMenu(int categoryNumber){
+
+    public void FullScreen_selectCategoryFromMainMenu(int categoryNumber) {
         WebElement mainMenuCategory = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"main_menu_top\"]/li[%d]", categoryNumber)));
         mainMenuCategory.click();
     }
-    public void SmallScreen_selectCategoryFromMainMenu(int index){
-     WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
-     Select selectCategory = new Select(mainMenu);
-     selectCategory.selectByIndex(index);
+
+    public void SmallScreen_selectCategoryFromMainMenu(int index) {
+        WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
+        Select selectCategory = new Select(mainMenu);
+        selectCategory.selectByIndex(index);
     }
 
 }

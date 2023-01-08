@@ -1,6 +1,5 @@
 package tests;
 
-import constants.Urls;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CategoryMenuPage;
@@ -13,7 +12,7 @@ public class TestIndividualProduct extends TestBase {
     ProductsCategoryPage productsCategoryPage;
 
     public TestIndividualProduct() {
-        super(Urls.signin);
+        super();
         this.individualProductPage = new IndividualProductPage(chromeDriver);
         this.categoryMenuPage = new CategoryMenuPage(chromeDriver);
         this.productsCategoryPage = new ProductsCategoryPage(chromeDriver);
@@ -28,6 +27,7 @@ public class TestIndividualProduct extends TestBase {
         this.individualProductPage.setSizeOption(sizeOption);
         Assert.assertEquals(this.individualProductPage.selectSize(), sizeOption);
     }
+
     @Test
     public void changeQuantityOfProduct() throws InterruptedException {
         int quantity = 30;
@@ -40,8 +40,9 @@ public class TestIndividualProduct extends TestBase {
         Assert.assertEquals(this.individualProductPage.getFinalPrice(),
                 this.individualProductPage.calculateFinalPrice(quantity));
     }
+
     @Test
-    public void addProductToWishList(){
+    public void addProductToWishList() {
         this.categoryMenuPage.hoverOverElement(5);
         this.categoryMenuPage.clickToSubmenuCategory(5, 2);
         this.productsCategoryPage.clickOnProduct(1);

@@ -8,12 +8,12 @@ public class EditAddressBookPage {
     ManageAddressBookPage manageAddressBookPage;
     By successTitleForEditAddressBookPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
 
-    public EditAddressBookPage(WebDriver chromeDriver){
+    public EditAddressBookPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
-        this.manageAddressBookPage =new ManageAddressBookPage(chromeDriver);
+        this.manageAddressBookPage = new ManageAddressBookPage(chromeDriver);
     }
-    public String getSuccessTitleForEditAddressBookPage(){
-        String successTitleForEditAddressBookPage = chromeDriver.findElement(By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]")).getText();
-        return successTitleForEditAddressBookPage;
+
+    public String getSuccessTitleForEditAddressBookPage() {
+        return chromeDriver.findElement(this.successTitleForEditAddressBookPage).getText();
     }
 }

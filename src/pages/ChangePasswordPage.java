@@ -10,25 +10,34 @@ public class ChangePasswordPage {
     By newPasswordInput = By.id("PasswordFrm_password");
     By confirmedPasswordInput = By.id("PasswordFrm_confirm");
     By continueButton = By.xpath("//*[@id=\"PasswordFrm\"]/div[2]/div/button");
+    By backButton = By.xpath("//*[@id=\"PasswordFrm\"]/div[2]/div/a");
 
-    public ChangePasswordPage(WebDriver chromeDriver){
-        this.chromeDriver= chromeDriver;
+    public ChangePasswordPage(WebDriver chromeDriver) {
+        this.chromeDriver = chromeDriver;
     }
+
     public String getChangePasswordTitlePage() {
-      String successTitleChangedPassword = this.chromeDriver.findElement(this.successTitleChangedPassword).getText();
-    return successTitleChangedPassword;
+        return this.chromeDriver.findElement(this.successTitleChangedPassword).getText();
     }
-    public void setCurrentPasswordInput( String currentPassword){
+
+    public void setCurrentPasswordInput(String currentPassword) {
         this.chromeDriver.findElement(currentPasswordInput).sendKeys(currentPassword);
     }
-    public void setNewPasswordInput( String newPassword){
+
+    public void setNewPasswordInput(String newPassword) {
         this.chromeDriver.findElement(newPasswordInput).sendKeys(newPassword);
     }
-    public void setConfirmedPasswordInput( String confirmedPassword){
+
+    public void setConfirmedPasswordInput(String confirmedPassword) {
         this.chromeDriver.findElement(confirmedPasswordInput).sendKeys(confirmedPassword);
     }
-    public void clickContinueButton(){
+
+    public void clickContinueButton() {
         chromeDriver.findElement(continueButton).click();
+    }
+
+    public void clickToBackButton() {
+        chromeDriver.findElement(backButton).click();
     }
 
 }

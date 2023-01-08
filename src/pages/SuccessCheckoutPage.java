@@ -3,15 +3,16 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SearchPage {
+public class SuccessCheckoutPage {
     WebDriver chromeDriver;
-    By successTitle = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div/h4[2]");
+    By successTitle = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/h1/span[1]");
 
-    public SearchPage(WebDriver chromeDriver) {
+    public SuccessCheckoutPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
 
-    public String getSuccessTitleForSearch() {
+    public String getSuccessOrderTitle() {
         return chromeDriver.findElement(successTitle).getText();
     }
+
 }

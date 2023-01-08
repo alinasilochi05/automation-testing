@@ -24,8 +24,8 @@ public class CategoryMenuPage extends PageBase {
         actions.moveToElement(menuSection).perform();
     }
 
-    public void clickToSubmenuCategory(int categoryNumber, int subcategoryNumber)  {
-        By submenuCategoryBy = By.xpath(String.format("//*[@id=\"categorymenu\"]/nav/ul/li[%d]/div/ul[1]/li[%d]/a",categoryNumber,  subcategoryNumber));
+    public void clickToSubmenuCategory(int categoryNumber, int subcategoryNumber) {
+        By submenuCategoryBy = By.xpath(String.format("//*[@id=\"categorymenu\"]/nav/ul/li[%d]/div/ul[1]/li[%d]/a", categoryNumber, subcategoryNumber));
         WebElement submenuCategory = this.chromeDriver.findElement(submenuCategoryBy);
         submenuCategory.click();
     }

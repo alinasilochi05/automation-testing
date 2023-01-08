@@ -1,6 +1,5 @@
 package tests;
 
-import constants.Urls;
 import handlers.SigninHandler;
 import org.junit.Assert;
 import org.testng.annotations.Test;
@@ -13,8 +12,9 @@ public class TestManageAddressBook extends TestBase {
     ManageAddressBookPage manageAddressBookPage;
     AccountDashboardPage accountDashboardPage;
     AddNewAddressPage addNewAddressPage;
-    public TestManageAddressBook(){
-        super(Urls.signin);
+
+    public TestManageAddressBook() {
+        super();
         this.editAddressBookPage = new EditAddressBookPage(chromeDriver);
         this.signinHandler = new SigninHandler(chromeDriver);
         this.manageAddressBookPage = new ManageAddressBookPage(chromeDriver);
@@ -22,22 +22,30 @@ public class TestManageAddressBook extends TestBase {
         this.addNewAddressPage = new AddNewAddressPage(chromeDriver);
 
     }
+
     @AfterMethod
     public void afterMethod() {
         this.chromeDriver.navigate().back();
     }
+
     @Test(priority = 0)
-    public void openEditAddressBookPage(){
+    public void openEditAddressBookPage() {
         this.accountDashboardPage.clickManageAddressBookButton();
         this.manageAddressBookPage.clickEditAddressBookButton();
         Assert.assertEquals("ADDRESS BOOK", this.editAddressBookPage.getSuccessTitleForEditAddressBookPage());
         this.chromeDriver.navigate().back();
     }
+
     @Test(priority = 1)
-    public void openAddNewAddressPage(){
+    public void openAddNewAddressPage() {
         this.accountDashboardPage.clickManageAddressBookButton();
         this.manageAddressBookPage.clickToAddNewAddressButton();
         Assert.assertTrue(this.addNewAddressPage.getRadioButtonValue());
+    }
 
+    @Test
+    public void deleteAddressFromAddressBook() {
+        this.accountDashboardPage.selectCategoryFromSideBox(5);
+        this.manageAddressBookPage.clickToDeleteButton(2);
     }
 }

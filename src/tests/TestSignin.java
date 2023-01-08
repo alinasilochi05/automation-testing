@@ -1,6 +1,5 @@
 package tests;
 
-import constants.Urls;
 import handlers.SigninHandler;
 import org.junit.Test;
 import pages.SigninPage;
@@ -11,7 +10,7 @@ public class TestSignin extends TestBase {
     SigninHandler signinHandler;
 
     public TestSignin() {
-        super(Urls.signin);
+        super();
         this.signinPage = new SigninPage(this.chromeDriver);
         this.signinHandler = new SigninHandler(this.chromeDriver);
     }

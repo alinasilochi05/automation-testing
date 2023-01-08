@@ -12,7 +12,8 @@ public class TestSignup extends TestBase {
     SignupPage signupPage;
     SuccessSignUpPage successSignUpPage;
     UtilsHandler utilsHandler;
-    public TestSignup(){
+
+    public TestSignup() {
         super(Urls.signup);
         this.signupPage = new SignupPage(this.chromeDriver);
         this.successSignUpPage = new SuccessSignUpPage(chromeDriver);
@@ -29,7 +30,7 @@ public class TestSignup extends TestBase {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(32));
         this.signupPage.setLastNameInput("Amara");
         this.signupPage.setEmailInput("gloria1225@gmail.com");
-        this.signupPage.setAdressInput("Calea abc 22");
+        this.signupPage.setAddressInput("Calea abc 22");
         this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
         Thread.sleep(500);

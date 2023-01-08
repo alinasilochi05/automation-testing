@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AccountDashboardPage {
     WebDriver chromedriver;
@@ -57,10 +58,14 @@ public class AccountDashboardPage {
         this.chromedriver.findElement(logoffButton).click();
     }
 
-    public String getSuccesTitleForEditAccountDetails(){
-        String successTitleForEditAccountDetails = this.chromedriver.findElement(By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]")).getText();
-        return successTitleForEditAccountDetails;
+    public String getSuccessTitleForEditAccountDetails() {
+        return this.chromedriver.findElement(this.successTitleForEditAccountDetails).getText();
     }
-    
+
+    public void selectCategoryFromSideBox(int categoryNumber) {
+        WebElement sideBoxCategory = chromedriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div[2]/div[1]/div/ul/li[%d]", categoryNumber)));
+        sideBoxCategory.click();
+    }
+
 }
 

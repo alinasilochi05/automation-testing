@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderHistoryPage {
     WebDriver chromeDriver;
-    By succesTitleOrderHistoryPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    By successTitleOrderHistoryPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
 
-    public OrderHistoryPage(WebDriver chromeDriver){
+    public OrderHistoryPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
+
     public String getOrderHistoryPageTitle() {
-        String successOrderHistoryPage = chromeDriver.findElement(this.succesTitleOrderHistoryPage).getText();
-        return successOrderHistoryPage;
+        return chromeDriver.findElement(this.successTitleOrderHistoryPage).getText();
     }
 }

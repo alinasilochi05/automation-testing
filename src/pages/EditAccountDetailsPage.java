@@ -1,10 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class EditAccountDetailsPage {
     WebDriver chromeDriver;
@@ -16,27 +14,32 @@ public class EditAccountDetailsPage {
     By backButton = By.xpath("//*[@id=\"AccountFrm\"]/div[2]/div/a");
 
 
-    public EditAccountDetailsPage(WebDriver chromeDriver){
-        this.chromeDriver= chromeDriver;
+    public EditAccountDetailsPage(WebDriver chromeDriver) {
+        this.chromeDriver = chromeDriver;
     }
-    public String getEditAccountDetailsTitlePage(){
-        String successTitleEditAccountDetails = chromeDriver.findElement(this.successTitleEditAccountDetails).getText();
-        return successTitleEditAccountDetails;
+
+    public String getEditAccountDetailsTitlePage() {
+        return chromeDriver.findElement(this.successTitleEditAccountDetails).getText();
     }
-    public void setFirstNameInput( String firstname){
+
+    public void setFirstNameInput(String firstname) {
         this.chromeDriver.findElement(firstNameInput).sendKeys(firstname);
     }
-    public void deleteTextFromFirstNameInput (){
-        WebElement firstNameI= chromeDriver.findElement(By.id("AccountFrm_firstname"));
+
+    public void deleteTextFromFirstNameInput() {
+        WebElement firstNameI = chromeDriver.findElement(By.id("AccountFrm_firstname"));
         firstNameI.clear();
     }
-    public void setLastnameInput( String lastName){
+
+    public void setLastnameInput(String lastName) {
         this.chromeDriver.findElement(lastnameInput).sendKeys(lastName);
     }
-    public void setEmailInput(String email){
+
+    public void setEmailInput(String email) {
         this.chromeDriver.findElement(emailInput).sendKeys(email);
     }
-    public void clickContinueButton(){
+
+    public void clickContinueButton() {
         chromeDriver.findElement(continueButton).click();
     }
 

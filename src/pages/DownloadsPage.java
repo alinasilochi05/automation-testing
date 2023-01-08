@@ -5,13 +5,18 @@ import org.openqa.selenium.WebDriver;
 
 public class DownloadsPage {
     WebDriver chromeDriver;
-    By succesTitleDownloadsPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    By successTitleDownloadsPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    By continueButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div/div/div/a");
 
     public DownloadsPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
+
     public String getDownloadsPageTitle() {
-        String successTitleDownloadsPage = chromeDriver.findElement(this.succesTitleDownloadsPage).getText();
-        return successTitleDownloadsPage;
+        return this.chromeDriver.findElement(this.successTitleDownloadsPage).getText();
+    }
+
+    public void clickOnContinueButton() {
+        chromeDriver.findElement(continueButton).click();
     }
 }

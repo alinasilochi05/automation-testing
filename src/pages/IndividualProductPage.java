@@ -1,13 +1,9 @@
 package pages;
 
-import com.google.common.collect.BoundType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import static java.lang.Integer.parseInt;
 
 public class IndividualProductPage {
     WebDriver chromeDriver;
@@ -17,6 +13,7 @@ public class IndividualProductPage {
     By basePrice = By.xpath("//*[@id=\"product_details\"]/div/div[2]/div/div/div[1]/div/div");
     By addToWishListText = By.xpath("//*[@id=\"product\"]/fieldset/div[6]/a[2]");
     By removeFromWishList = By.xpath("//*[@id=\"product\"]/fieldset/div[6]");
+
     public IndividualProductPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
@@ -51,18 +48,15 @@ public class IndividualProductPage {
         return Float.parseFloat(this.chromeDriver.findElement(basePrice).getText().substring(1));
     }
 
-    public float getQuantity() {
-        return Float.parseFloat(this.chromeDriver.findElement(quantityInput).getText());
-    }
-
     public float calculateFinalPrice(int quantity) {
         return quantity * this.getBasePrice();
     }
 
-    public void clickOnAddToWishList(){
+    public void clickOnAddToWishList() {
         this.chromeDriver.findElement(addToWishListText).click();
     }
-    public String getTextFromRemoveFromWishlist(){
+
+    public String getTextFromRemoveFromWishlist() {
         return chromeDriver.findElement(removeFromWishList).getText();
     }
 

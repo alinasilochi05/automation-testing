@@ -10,7 +10,7 @@ public class SignupPage {
     By firstNameInput = By.id("AccountFrm_firstname");
     By lastNameInput = By.id("AccountFrm_lastname");
     By emailInput = By.id("AccountFrm_email");
-    By adressInput = By.id("AccountFrm_address_1");
+    By addressInput = By.id("AccountFrm_address_1");
     By cityInput = By.id("AccountFrm_city");
     By regionInput = By.id("AccountFrm_zone_id");
     By zipCodeInput = By.id("AccountFrm_postcode");
@@ -38,8 +38,8 @@ public class SignupPage {
         this.chromeDriver.findElement(emailInput).sendKeys(email);
     }
 
-    public void setAdressInput(String address) {
-        this.chromeDriver.findElement(adressInput).sendKeys(address);
+    public void setAddressInput(String address) {
+        this.chromeDriver.findElement(addressInput).sendKeys(address);
     }
 
     public void setCountryInput(String country) {
