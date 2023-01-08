@@ -9,6 +9,7 @@ public class ManageAddressBookPage {
     By successTitleAddressBookPage = (By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1"));
     By editAddressBookButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div/div[1]/table/tbody/tr/td[2]/button");
     By addNewAddressButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div/div[2]/a[2]");
+    public String manageAddressSuccessTitle = "ADDRESS BOOK";
 
     public ManageAddressBookPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;

@@ -11,6 +11,7 @@ public class ChangePasswordPage {
     By confirmedPasswordInput = By.id("PasswordFrm_confirm");
     By continueButton = By.xpath("//*[@id=\"PasswordFrm\"]/div[2]/div/button");
     By backButton = By.xpath("//*[@id=\"PasswordFrm\"]/div[2]/div/a");
+    public  String changePasswordSuccessTitle = "CHANGE PASSWORD";
 
     public ChangePasswordPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;

@@ -7,6 +7,7 @@ public class DownloadsPage {
     WebDriver chromeDriver;
     By successTitleDownloadsPage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
     By continueButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div/div/div/a");
+    public String downloadsSuccessTitle = "ACCOUNT DOWNLOADS";
 
     public DownloadsPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;

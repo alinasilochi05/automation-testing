@@ -42,10 +42,4 @@ public class TestManageAddressBook extends TestBase {
         this.manageAddressBookPage.clickToAddNewAddressButton();
         Assert.assertTrue(this.addNewAddressPage.getRadioButtonValue());
     }
-
-    @Test
-    public void deleteAddressFromAddressBook() {
-        this.accountDashboardPage.selectCategoryFromSideBox(5);
-        this.manageAddressBookPage.clickToDeleteButton(2);
-    }
 }

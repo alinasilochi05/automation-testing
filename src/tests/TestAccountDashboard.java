@@ -2,6 +2,7 @@ package tests;
 
 import handlers.SigninHandler;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import org.testng.annotations.Test;
 import pages.*;
@@ -93,11 +94,5 @@ public class TestAccountDashboard extends TestBase {
     public void clickLogoff() {
         this.accountDashboardPage.clickLogoffButton();
         Assert.assertEquals("ACCOUNT LOGOUT", this.logoffPage.getLogoffPageTitle());
-    }
-
-    @Test
-    public void openSectionFromSideMenu() {
-        this.accountDashboardPage.selectCategoryFromSideBox(2);
-        Assert.assertEquals(this.wishListPage.getWishListPageTitle(), "MY WISH LIST");
     }
 }

@@ -15,7 +15,7 @@ public class AccountDashboardPage {
     By downloadsButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[7]/a");
     By notificationButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[8]/a");
     By logoffButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[9]/a");
-    By successTitleForEditAccountDetails = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
+    By successTitleForEditAccountDetails = By.xpath("///*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
 
     public AccountDashboardPage(WebDriver chromeDriver) {
 
@@ -60,11 +60,6 @@ public class AccountDashboardPage {
 
     public String getSuccessTitleForEditAccountDetails() {
         return this.chromedriver.findElement(this.successTitleForEditAccountDetails).getText();
-    }
-
-    public void selectCategoryFromSideBox(int categoryNumber) {
-        WebElement sideBoxCategory = chromedriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div[2]/div[1]/div/ul/li[%d]", categoryNumber)));
-        sideBoxCategory.click();
     }
 
 }

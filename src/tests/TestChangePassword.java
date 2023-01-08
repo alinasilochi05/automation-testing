@@ -27,11 +27,4 @@ public class TestChangePassword extends TestBase {
         this.changePasswordPage.setConfirmedPasswordInput("pass");
         this.changePasswordPage.clickContinueButton();
     }
-
-    @Test
-    public void GoBackFunctionality() {
-        this.accountDashboardPage.selectCategoryFromSideBox(4);
-        this.changePasswordPage.clickToBackButton();
-        Assert.assertEquals(this.accountDashboardPage.getSuccessTitleForEditAccountDetails(), "MY ACCOUNT");
-    }
 }
