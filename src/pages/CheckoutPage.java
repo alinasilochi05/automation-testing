@@ -8,6 +8,7 @@ public class CheckoutPage {
     By successTitle = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
     By backButton = By.id("back");
     By confirmOrderButton = By.id("checkout_btn");
+    public String successTitleCheckout = "CHECKOUT CONFIRMATION";
     public CheckoutPage(WebDriver chromeDriver){
         this.chromeDriver = chromeDriver;
     }

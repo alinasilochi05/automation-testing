@@ -15,7 +15,8 @@ public class AccountDashboardPage {
     By downloadsButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[7]/a");
     By notificationButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[8]/a");
     By logoffButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[9]/a");
-    By successTitleForEditAccountDetails = By.xpath("///*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    By successTitleForEditAccountDetails = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    public String successTitle = " ACCOUNT LOGIN";
 
     public AccountDashboardPage(WebDriver chromeDriver) {
 
