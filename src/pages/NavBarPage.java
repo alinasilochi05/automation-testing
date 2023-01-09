@@ -37,10 +37,6 @@ public class NavBarPage {
         searchedWord.sendKeys(Keys.ENTER);
     }
 
-    public void FullScreen_selectCategoryFromMainMenu(int categoryNumber) {
-        WebElement mainMenuCategory = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"main_menu_top\"]/li[%d]", categoryNumber)));
-        mainMenuCategory.click();
-    }
 
     public void SmallScreen_selectCategoryFromMainMenu(int index) {
         WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
