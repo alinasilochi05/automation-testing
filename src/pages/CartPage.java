@@ -13,6 +13,7 @@ public class CartPage {
     By continueShoppingButton = By.xpath("//*[@id=\"cart\"]/div/div[3]/div/a[1]");
     By unitPrice = By.xpath("//*[@id=\"cart\"]/div/div[1]/table/tbody/tr[2]/td[4]");
     By totalPrice = By.xpath("//*[@id=\"cart\"]/div/div[1]/table/tbody/tr[2]/td[6]");
+    public String successTitleCart = "SHOPPING CART";
 
     public CartPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;

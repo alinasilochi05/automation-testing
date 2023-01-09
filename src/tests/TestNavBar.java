@@ -106,7 +106,7 @@ public class TestNavBar extends TestBase {
         Assert.assertEquals(this.notificationPage.getNotificationPageTitle(), this.notificationPage.notificationSuccessTitle);
     }
 
-    @Test(priority = 3)
+    @Test(priority = 2)
     public void openLogoutCategory() {
         this.navBarPage.hoverElement(1);
         this.navBarPage.clickOnSubmenuCustomerNav(10);
@@ -114,7 +114,7 @@ public class TestNavBar extends TestBase {
     }
 
 
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void searchCategoryProductWithSearchBar() {
         this.navBarPage.setSearchBar("gucci");
         Assert.assertEquals(this.searchPage.getSuccessTitleForSearch(), "Products meeting the search criteria");
@@ -138,16 +138,16 @@ public class TestNavBar extends TestBase {
         Assert.assertEquals(this.myOrderHistoryPage.getSuccessTitleMyOrderHistory(), this.orderHistoryPage.orderHistorySuccessTitle);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void openLogOutCategory() {
         this.navBarPage.SmallScreen_selectCategoryFromMainMenu(4);
-        Assert.assertEquals(this.cartPage.getSuccessTitleForCartPage(), "SHOPPING CART");
+        Assert.assertEquals(this.logOutPage.getLogoffPageTitle(), this.logOutPage.logOutSuccessTitle);
     }
 
-    @Test(priority = 4)
+    @Test(priority = 1)
     public void openCartCategory() {
         this.navBarPage.SmallScreen_selectCategoryFromMainMenu(5);
-        Assert.assertEquals(this.logOutPage.getLogoffPageTitle(), this.logOutPage.logOutSuccessTitle);
+        Assert.assertEquals(this.cartPage.getSuccessTitleForCartPage(), this.cartPage.successTitleCart);
     }
 
     @Test(priority = 1)
