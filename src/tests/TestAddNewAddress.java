@@ -30,6 +30,5 @@ public class TestAddNewAddress extends TestBase {
         this.addNewAddressPage.setRegionInput("Alba");
         this.addNewAddressPage.clickContinueButton();
 
-
     }
 }
