@@ -155,5 +155,10 @@ public class TestNavBar extends TestBase {
         this.navBarPage.SmallScreen_selectCategoryFromMainMenu(6);
         Assert.assertEquals(this.checkoutPage.getSuccessTitle(), this.checkoutPage.successTitleCheckout);
     }
+    @Test
+    public void logoFunctionality(){
+        this.navBarPage.clickOnLogo();
+        Assert.assertEquals(chromeDriver.getTitle(), "A place to practice your automation skills!");
+    }
 
 }

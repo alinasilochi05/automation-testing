@@ -13,6 +13,7 @@ public class NavBarPage {
     SearchPage searchPage;
     By searchBar = By.id("filter_keyword");
     By mainMenuDropdown = By.xpath("//*[@id=\"topnav\"]/select");
+    By logo = By.xpath("/html/body/div/header/div[1]/div/div[1]/a");
 
 
     public NavBarPage(WebDriver chromeDriver) {
@@ -42,6 +43,10 @@ public class NavBarPage {
         WebElement mainMenu = chromeDriver.findElement(mainMenuDropdown);
         Select selectCategory = new Select(mainMenu);
         selectCategory.selectByIndex(index);
+    }
+
+    public void clickOnLogo(){
+        chromeDriver.findElement(logo).click();
     }
 
 }
