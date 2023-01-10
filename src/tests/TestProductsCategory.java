@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CategoryMenuPage;
 import pages.ProductsCategoryPage;
@@ -7,6 +8,7 @@ import pages.ProductsCategoryPage;
 public class TestProductsCategory extends TestBase {
     ProductsCategoryPage productsCategoryPage;
     CategoryMenuPage categoryMenuPage;
+    private ProductsCategoryPage productsCategoryPage1;
 
     public TestProductsCategory() {
         super();
@@ -33,6 +35,14 @@ public class TestProductsCategory extends TestBase {
         this.categoryMenuPage.hoverOverElement(3);
         this.categoryMenuPage.clickToSubmenuCategory(3, 1);
         this.productsCategoryPage.clickOnProduct(3);
+    }
+    @Test
+    public void openReviewSection(){
+        this.categoryMenuPage.hoverOverElement(2);
+        this.categoryMenuPage.clickToSubmenuCategory(2, 1);
+        this.productsCategoryPage.hoverOverProduct(3);
+       this.productsCategoryPage.clickOnWriteReview(2, 3);
+        Assert.assertEquals(chromeDriver.getTitle(), "Shoes");
     }
 
 }

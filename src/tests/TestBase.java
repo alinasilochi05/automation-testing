@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
@@ -41,9 +42,9 @@ public class TestBase {
         this.signinHandler.Signin();
     }
 
-//    @AfterSuite
-//    public void close() {
-//        this.chromeDriver.close();
-//    }
+    @AfterSuite
+    public void close() {
+        this.chromeDriver.close();
+    }
 
 }
