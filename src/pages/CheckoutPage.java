@@ -8,6 +8,7 @@ public class CheckoutPage {
     By successTitle = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
     By backButton = By.id("back");
     By confirmOrderButton = By.id("checkout_btn");
+    By warningMessage = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div");
     public String successTitleCheckout = "CHECKOUT CONFIRMATION";
     public CheckoutPage(WebDriver chromeDriver){
         this.chromeDriver = chromeDriver;
@@ -20,5 +21,8 @@ public class CheckoutPage {
     }
     public void clickOnBackButton(){
         chromeDriver.findElement(backButton).click();
+    }
+    public String getWarningMessage(){
+        return chromeDriver.findElement(warningMessage).getText();
     }
 }

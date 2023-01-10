@@ -421,14 +421,14 @@ public class TestSignup extends TestBase {
     public void signUp_3charactersZIPCode() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
         this.signupPage.setLastNameInput("Amara");
-        this.signupPage.setEmailInput("demo21@gmail.com");
+        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
         this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
         this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
         Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
         this.signupPage.setZipCodeInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setLoginNameInput("demo21");
+        this.signupPage.setLoginNameInput("demo28");
         this.signupPage.setPasswordInput("pass");
         this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();

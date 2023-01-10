@@ -13,6 +13,7 @@ public class IndividualProductPage {
     By basePrice = By.xpath("//*[@id=\"product_details\"]/div/div[2]/div/div/div[1]/div/div");
     By addToWishListText = By.xpath("//*[@id=\"product\"]/fieldset/div[6]/a[2]");
     By removeFromWishList = By.xpath("//*[@id=\"product\"]/fieldset/div[6]");
+    By addToCart = By.xpath("//*[@id=\"product\"]/fieldset/div[5]/ul/li/a");
 
     public IndividualProductPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
@@ -58,6 +59,9 @@ public class IndividualProductPage {
 
     public String getTextFromRemoveFromWishlist() {
         return chromeDriver.findElement(removeFromWishList).getText();
+    }
+    public void clickOnAddToCartButton(){
+        this.chromeDriver.findElement(addToCart).click();
     }
 
 
