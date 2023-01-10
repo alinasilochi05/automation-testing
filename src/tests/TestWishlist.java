@@ -1,5 +1,7 @@
 package tests;
 
+import constants.Urls;
+import org.testng.annotations.BeforeTest;
 import pages.WishListPage;
 
 public class TestWishlist extends TestBase {
@@ -8,5 +10,9 @@ public class TestWishlist extends TestBase {
     public TestWishlist(){
         super();
         this.wishListPage = new WishListPage(chromeDriver);
+    }
+    @BeforeTest
+    public void setupBeforeTest() {
+        this.chromeDriver.get(Urls.wishList);
     }
 }

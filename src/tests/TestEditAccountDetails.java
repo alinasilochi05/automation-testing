@@ -1,7 +1,9 @@
 package tests;
 
+import constants.Urls;
 import handlers.SigninHandler;
 import org.junit.Assert;
+import org.testng.annotations.BeforeTest;
 import pages.AccountDashboardPage;
 import pages.EditAccountDetailsPage;
 import org.testng.annotations.Test;
@@ -18,10 +20,13 @@ public class TestEditAccountDetails extends TestBase {
         this.signinHandler = new SigninHandler(this.chromeDriver);
         this.accountDashboardPage = new AccountDashboardPage(this.chromeDriver);
     }
+    @BeforeTest
+    public void setupBeforeTest() {
+        this.chromeDriver.get(Urls.editAccountDetails);
+    }
 
     @Test
     public void editFirstNameInputWithValidData() {
-        this.accountDashboardPage.clickEditAccountDetailsButton();
         this.editAccountDetailsPage.deleteTextFromFirstNameInput();
         this.editAccountDetailsPage.setFirstNameInput("Mira");
         this.editAccountDetailsPage.clickContinueButton();

@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 public class AccountDashboardPage {
     WebDriver chromedriver;
@@ -16,7 +16,16 @@ public class AccountDashboardPage {
     By notificationButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[8]/a");
     By logoffButton = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/ul/li[9]/a");
     By successTitleForEditAccountDetails = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/h1/span[1]");
+    By successMessageEdit = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
+    By successMessageChangedPassword = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
+    By successNotificationMessage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
     public String successTitle = "MY ACCOUNT";
+    public String successMessageEditDetails = "\n" +
+            "Success: Your account has been successfully updated.";
+    public String successMessageTitleChangePassword = "×\n" +
+            "Success: Your password has been successfully updated.";
+    public String successNotificationMessagee = "×\n" +
+            "Success: Your notification settings has been successfully updated!";
 
     public AccountDashboardPage(WebDriver chromeDriver) {
 
@@ -61,6 +70,12 @@ public class AccountDashboardPage {
 
     public String getSuccessTitleForEditAccountDetails() {
         return this.chromedriver.findElement(this.successTitleForEditAccountDetails).getText();
+    }
+    public String getSuccessMessageForChangePassword(){
+        return this.chromedriver.findElement(successMessageChangedPassword).getText();
+    }
+    public String getSuccessNotificationMessage(){
+        return this.chromedriver.findElement(successNotificationMessage).getText();
     }
 
 }

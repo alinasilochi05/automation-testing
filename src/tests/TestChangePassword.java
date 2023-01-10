@@ -1,7 +1,9 @@
 package tests;
 
+import constants.Urls;
 import handlers.SigninHandler;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.AccountDashboardPage;
 import pages.ChangePasswordPage;
@@ -19,12 +21,17 @@ public class TestChangePassword extends TestBase {
 
     }
 
+    @BeforeTest
+    public void setupBeforeTest() {
+        this.chromeDriver.get(Urls.changePassword);
+    }
+
     @Test
     public void changePasswordWithValidData() {
-        this.accountDashboardPage.clickChangePasswordButton();
         this.changePasswordPage.setCurrentPasswordInput("pass");
         this.changePasswordPage.setNewPasswordInput("pass");
         this.changePasswordPage.setConfirmedPasswordInput("pass");
         this.changePasswordPage.clickContinueButton();
+        Assert.assertEquals(this.accountDashboardPage.getSuccessMessageForChangePassword(), this.accountDashboardPage.successMessageTitleChangePassword);
     }
 }

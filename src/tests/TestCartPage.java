@@ -28,22 +28,23 @@ public class TestCartPage extends TestBase {
         this.chromeDriver.get(Urls.cartPage);
     }
 
-    @Test
+    @Test (priority = 2)
     public void goToCheckout() {
         this.cartPage.clickToCheckoutButton();
         Assert.assertEquals(this.checkoutPage.getSuccessTitle(), this.cartPageSuccessTitle);
     }
 
-    @Test
-    public void changeQuantityOfProduct() {
+    @Test (priority = 1)
+    public void changeQuantityOfProduct() throws InterruptedException {
         int quantity = 2;
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput(String.valueOf(quantity));
         this.cartPage.clickToUpdateButton();
+        Thread.sleep(2000);
         Assert.assertEquals(this.cartPage.getTotalPrice(), this.cartPage.calculateFinalPrice(quantity));
     }
 
-    @Test
-    public void deleteProductFromCart() {
-    }
+
+
+
 }

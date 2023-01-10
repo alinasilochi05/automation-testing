@@ -1,6 +1,8 @@
 package tests;
 
+import constants.Urls;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.CheckoutPage;
 import pages.NavBarPage;
@@ -17,11 +19,18 @@ public class TestCheckoutConfirm extends TestBase {
         this.navBarPage = new NavBarPage(chromeDriver);
         this.successCheckoutPage = new SuccessCheckoutPage(chromeDriver);
     }
-
-    @Test
+    @BeforeTest
+    public void setupBeforeTest() {
+        this.chromeDriver.get(Urls.checkoutConfirmation);
+    }
+    @Test (priority = 2)
     public void confirmOrder() {
-        this.navBarPage.SmallScreen_selectCategoryFromMainMenu(6);
         this.checkoutPage.clickOnConfirmOrder();
         Assert.assertEquals(this.successCheckoutPage.getSuccessOrderTitle(), "CHECKOUT CONFIRMATION");
+    }
+    @Test (priority = 1)
+    public void goToPreviousPage(){
+        this.checkoutPage.clickOnBackButton();
+        Assert.assertEquals(chromeDriver.getTitle(), "Payment Information");
     }
 }
