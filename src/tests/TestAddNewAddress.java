@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import pages.AccountDashboardPage;
 import pages.AddNewAddressPage;
 import org.testng.annotations.Test;
@@ -18,8 +19,9 @@ public class TestAddNewAddress extends TestBase {
     }
 
     @Test
-    public void addNewAddressWithValidData() {
+    public void addNewAddressWithValidData() throws InterruptedException {
         this.accountDashboardPage.clickManageAddressBookButton();
+        this.manageAddressBookPage.scrollDown();
         this.manageAddressBookPage.clickToAddNewAddressButton();
         this.addNewAddressPage.setFirstNameInput("DemoName");
         this.addNewAddressPage.setLastNameInput("Demo last name");
@@ -27,8 +29,10 @@ public class TestAddNewAddress extends TestBase {
         this.addNewAddressPage.setCityInput("Demo City");
         this.addNewAddressPage.setZipCodeInput("0000000");
         this.addNewAddressPage.setCountryInput("Romania");
+        Thread.sleep(300);
         this.addNewAddressPage.setRegionInput("Alba");
         this.addNewAddressPage.clickContinueButton();
+        Assert.assertEquals(chromeDriver.getTitle(), "Your address has been successfully inserted");
 
     }
 }

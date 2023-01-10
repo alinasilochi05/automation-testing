@@ -12,7 +12,7 @@ public class ProductsCategoryPage {
     WebDriver chromeDriver;
     By sortByDropdown = By.id("sort");
     By reviewButton = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div/div[2]/div[4]/div[2]/div[1]/a[2]");
-
+    By price = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div/div[2]/div[2]/div[2]/div[3]/div/div");
 
 
     public ProductsCategoryPage(WebDriver chromeDriver) {
@@ -36,15 +36,18 @@ public class ProductsCategoryPage {
         selectedProduct.click();
 
     }
-    public void hoverOverProduct(int productNumber){
+
+    public void hoverOverProduct(int productNumber) {
         By product = By.cssSelector(String.format("#maincontainer > div > div > div > div > div.thumbnails.grid.row.list-inline > div:nth-child(%d) > div.thumbnail > a", productNumber));
         WebElement selectedProduct = chromeDriver.findElement(product);
         Actions actions = new Actions(chromeDriver);
         actions.moveToElement(selectedProduct);
     }
-    public void clickOnWriteReview(int categoryNumber, int reviewNumber){
-    WebElement selectReview = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div/div/div/div[%d]/div[%d]/div[2]/div[1]/a[2]", categoryNumber, reviewNumber)));
 
-
+    public void clickOnWriteReview(int categoryNumber, int reviewNumber) {
+        WebElement selectReview = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div/div/div/div[%d]/div[%d]/div[2]/div[1]/a[2]", categoryNumber, reviewNumber)));
+    }
+    public String getPrice(){
+        return chromeDriver.findElement(price).getText();
     }
 }

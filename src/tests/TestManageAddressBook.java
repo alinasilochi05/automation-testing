@@ -7,7 +7,7 @@ import org.testng.annotations.AfterMethod;
 import pages.*;
 
 public class TestManageAddressBook extends TestBase {
-    EditAddressBookPage editAddressBookPage;
+
     SigninHandler signinHandler;
     ManageAddressBookPage manageAddressBookPage;
     AccountDashboardPage accountDashboardPage;
@@ -15,7 +15,6 @@ public class TestManageAddressBook extends TestBase {
 
     public TestManageAddressBook() {
         super();
-        this.editAddressBookPage = new EditAddressBookPage(chromeDriver);
         this.signinHandler = new SigninHandler(chromeDriver);
         this.manageAddressBookPage = new ManageAddressBookPage(chromeDriver);
         this.accountDashboardPage = new AccountDashboardPage(chromeDriver);
@@ -32,7 +31,7 @@ public class TestManageAddressBook extends TestBase {
     public void openEditAddressBookPage() {
         this.accountDashboardPage.clickManageAddressBookButton();
         this.manageAddressBookPage.clickEditAddressBookButton();
-        Assert.assertEquals("ADDRESS BOOK", this.editAddressBookPage.getSuccessTitleForEditAddressBookPage());
+        Assert.assertEquals("ADDRESS BOOK", chromeDriver.getTitle());
         this.chromeDriver.navigate().back();
     }
 
