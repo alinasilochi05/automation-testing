@@ -15,9 +15,15 @@ public class UtilsHandler {
     public String getStringWithLength(int length) {
         return "a".repeat(length);
     }
-    public String randomeString() {
-        String generatedString = RandomStringUtils.randomAlphabetic(8);
-        return(generatedString);
+    public String randomeString(int length) {
+        return RandomStringUtils.randomAlphabetic(length);
+
     }
-    public String getRandomeEmail = randomeString() + "@gmail.com";
+    public String getRandomeEmail = randomeString(6) + "@gmail.com";
+    public String getRandomNumber(int length){
+        return RandomStringUtils.randomNumeric(length);
+    }
+    public String getAlphaNumericValue(int length){
+        return RandomStringUtils.randomAlphanumeric(length);
+    }
 }
