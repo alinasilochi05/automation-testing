@@ -14,7 +14,6 @@ public class NavBarPage {
     By searchBar = By.id("filter_keyword");
     By mainMenuDropdown = By.xpath("//*[@id=\"topnav\"]/select");
     By logo = By.xpath("/html/body/div/header/div[1]/div/div[1]/a");
-    By changeCurrency =
 
 
     public NavBarPage(WebDriver chromeDriver) {
