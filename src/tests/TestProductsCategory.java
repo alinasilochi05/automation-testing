@@ -1,5 +1,6 @@
 package tests;
 
+import constants.Urls;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
@@ -27,6 +28,7 @@ public class TestProductsCategory extends TestBase {
         this.categoryMenuPage.hoverOverElement(6);
         this.categoryMenuPage.clickToSubmenuCategory(6, 1);
         this.productsCategoryPage.clickOnAddToCartButton(2);
+        this.chromeDriver.get(Urls.cartPage);
         Assert.assertEquals(this.productsCategoryPage.getPrice(), this.cartPage.getTotalPrice());
     }
 

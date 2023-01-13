@@ -31,6 +31,6 @@ public class TestEditAccountDetails extends TestBase {
         this.editAccountDetailsPage.setFirstNameInput("Mira");
         this.editAccountDetailsPage.clickContinueButton();
         Assert.assertEquals("×\n" +
-                "Success: Your account has been successfully updated.", this.accountDashboardPage.getSuccessTitleForEditAccountDetails());
+                "Success: Your account has been successfully updated.", this.accountDashboardPage.getSuccessMessage());
     }
 }

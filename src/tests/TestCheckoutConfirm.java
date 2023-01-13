@@ -23,7 +23,7 @@ public class TestCheckoutConfirm extends TestBase {
     public void setupBeforeTest() {
         this.chromeDriver.get(Urls.checkoutConfirmation);
     }
-    @Test (priority = 2)
+    @Test (priority = 1)
     public void confirmOrder() {
         this.checkoutPage.clickOnConfirmOrder();
         Assert.assertEquals(this.successCheckoutPage.getSuccessOrderTitle(), "CHECKOUT CONFIRMATION");

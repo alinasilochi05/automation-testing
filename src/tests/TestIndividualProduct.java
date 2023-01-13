@@ -30,7 +30,7 @@ public class TestIndividualProduct extends TestBase {
 
     @Test
     public void changeQuantityOfProduct() throws InterruptedException {
-        int quantity = 30;
+        int quantity = 3;
         this.categoryMenuPage.hoverOverElement(5);
         this.categoryMenuPage.clickToSubmenuCategory(5, 2);
         this.productsCategoryPage.clickOnProduct(1);

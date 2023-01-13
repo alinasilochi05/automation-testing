@@ -9,6 +9,8 @@ public class SigninPage {
     By loginNameInput = By.id("loginFrm_loginname");
     By passwordInput = By.id("loginFrm_password");
     By loginButton = By.xpath("//button[@title='Login']");
+    By warning = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
+
 
     public SigninPage(WebDriver chromeDriver) {
         this.chromeDriver = chromeDriver;
@@ -26,4 +28,9 @@ public class SigninPage {
     public void clickLogin() {
         this.chromeDriver.findElement(loginButton).click();
     }
+
+    public String getWarningMessage(){
+       return chromeDriver.findElement(warning).getText();
+    }
+    public String warningMessage = "Error: Incorrect login or password provided.";
 }

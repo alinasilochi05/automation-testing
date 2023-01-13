@@ -19,6 +19,7 @@ public class AccountDashboardPage {
     By successMessageEdit = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
     By successMessageChangedPassword = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
     By successNotificationMessage = By.xpath("//*[@id=\"maincontainer\"]/div/div[1]/div/div[1]");
+    By successMessage =  By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
     public String successTitle = "MY ACCOUNT";
     public String successMessageEditDetails = "\n" +
             "Success: Your account has been successfully updated.";
@@ -76,6 +77,9 @@ public class AccountDashboardPage {
     }
     public String getSuccessNotificationMessage(){
         return this.chromedriver.findElement(successNotificationMessage).getText();
+    }
+    public String getSuccessMessage(){
+        return this.chromedriver.findElement(successMessage).getText();
     }
 
 }

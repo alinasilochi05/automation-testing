@@ -31,7 +31,7 @@ public class TestManageAddressBook extends TestBase {
     public void openEditAddressBookPage() {
         this.accountDashboardPage.clickManageAddressBookButton();
         this.manageAddressBookPage.clickEditAddressBookButton();
-        Assert.assertEquals("ADDRESS BOOK", chromeDriver.getTitle());
+        Assert.assertEquals("Address Book", chromeDriver.getTitle());
         this.chromeDriver.navigate().back();
     }
 

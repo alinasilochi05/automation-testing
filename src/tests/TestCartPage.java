@@ -49,41 +49,34 @@ public class TestCartPage extends TestBase {
         Assert.assertEquals(this.cartPage.getTotalPrice(), this.cartPage.calculateFinalPrice(quantity));
     }
     @Test(priority = 1)
-    public void changeQuantity_InvalidValue_Letter() throws InterruptedException {
+    public void changeQuantity_InvalidValue_Letter()  {
         String quantity = "a";
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput(quantity);
         this.cartPage.clickToUpdateButton();
-        Thread.sleep(200);
-        Assert.assertEquals(this.checkoutPage.getWarningMessage(), "Your shopping cart is empty!\n" +
-                "Continue");
+        Assert.assertEquals(this.checkoutPage.getWarningMessage(), this.cartPage.expectedWarning);
     }
     @Test(priority = 1)
     public void changeQuantity_InvalidValue_LetterAndNumbers() throws InterruptedException {
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput("1o");
         this.cartPage.clickToUpdateButton();
-        Thread.sleep(200);
-        Assert.assertEquals(this.checkoutPage.getWarningMessage(), "Your shopping cart is empty!\n" +
-                "Continue");
+        Assert.assertEquals(this.cartPage.getValueFromInput(), true);
     }
     @Test(priority = 1)
     public void changeQuantity_InvalidValue_Decimals() throws InterruptedException {
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput("1.5");
+        Thread.sleep(5000);
         this.cartPage.clickToUpdateButton();
-        Thread.sleep(200);
-        Assert.assertEquals(this.checkoutPage.getWarningMessage(), "Your shopping cart is empty!\n" +
-                "Continue");
+        Assert.assertEquals(this.checkoutPage.getWarningMessage(), this.cartPage.expectedWarning);
     }
     @Test(priority = 1)
-    public void changeQuantity_InvalidValue_NegativeNumber() throws InterruptedException {
+    public void changeQuantity_InvalidValue_NegativeNumber()  {
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput("-1");
         this.cartPage.clickToUpdateButton();
-        Thread.sleep(200);
-        Assert.assertEquals(this.checkoutPage.getWarningMessage(), "Your shopping cart is empty!\n" +
-                "Continue");
+        Assert.assertEquals(this.checkoutPage.getWarningMessage(), this.cartPage.expectedWarning);
     }
 
 

@@ -17,4 +17,5 @@ public class Urls {
     public static final String wishList = "https://automationteststore.com/index.php?rt=account/wishlist";
 
 
+
 }
