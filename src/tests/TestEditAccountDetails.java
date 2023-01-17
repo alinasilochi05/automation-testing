@@ -20,6 +20,7 @@ public class TestEditAccountDetails extends TestBase {
         this.signinHandler = new SigninHandler(this.chromeDriver);
         this.accountDashboardPage = new AccountDashboardPage(this.chromeDriver);
     }
+
     @BeforeTest
     public void setupBeforeTest() {
         this.chromeDriver.get(Urls.editAccountDetails);

@@ -21,7 +21,7 @@ public class TestOrderHistory extends TestBase {
     }
 
     @Test
-    public void openOrderDetailsPage(){
+    public void openOrderDetailsPage() {
         this.myOrderHistoryPage.clickOnViewButton();
         Assert.assertEquals(chromeDriver.getTitle(), "Order Details");
     }

@@ -4,10 +4,9 @@ import constants.Urls;
 import handlers.UtilsHandler;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import pages.SignupPage;
 import pages.SuccessSignUpPage;
-import java.util.concurrent.TimeUnit;
 
 public class TestSignup extends TestBase {
     SignupPage signupPage;
@@ -15,7 +14,7 @@ public class TestSignup extends TestBase {
     UtilsHandler utilsHandler;
 
     public TestSignup() {
-        super(Urls.signup);
+        super(Urls.signup, true, true);
         this.signupPage = new SignupPage(this.chromeDriver);
         this.successSignUpPage = new SuccessSignUpPage(chromeDriver);
         this.utilsHandler = new UtilsHandler();
@@ -27,494 +26,415 @@ public class TestSignup extends TestBase {
     }
 
     @Test
-    public void signUp()  {
+    public void signUp() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(32));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("gloria1225@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("gloria02");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
     }
 
     @Test
-    public void signUp_1CharacterInFirstName() {
+    public void signUp_1CharacterInFirstName() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(1));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo1");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
 
     }
 
     @Test
-    public void signUp_2CharactersInFirstName() {
+    public void signUp_2CharactersInFirstName() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(2));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo3@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo3");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
     }
 
     @Test
-    public void signUp_EmptyFirstNameInput()  {
+    public void signUp_EmptyFirstNameInput() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(0));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo4@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo4");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "First Name must be between 1 and 32 characters!", this.signupPage.getWarningMessage());
     }
 
     @Test
-    public void signUp_33CharactersFirstNameInput() {
+    public void signUp_33CharactersFirstNameInput() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(33));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo6@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo6");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "First Name must be between 1 and 32 characters!", this.signupPage.getWarningMessage());
 
     }
 
     @Test
-    public void signUp_EmptyEmailField() {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(7));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
+    public void signUp_EmptyEmailField() throws InterruptedException {
+        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(32));
+        this.signupPage.setLastNameInput("Amara");
         this.signupPage.setEmailInput(" ");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo7");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
 
     }
 
     @Test
-    public void signUpInvalidMail_onlyUsername()  {
+    public void signUpInvalidMail_onlyUsername() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("username");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
 
     @Test
-    public void signUpInvalidEmail_withoutSymbol()  {
+    public void signUpInvalidEmail_withoutSymbol() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("username.gmail.com");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("abcd gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
 
     @Test
-    public void signUpInvalidMail_withoutMailServer()  {
+    public void signUpInvalidMail_withoutMailServer() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("username@aa.com");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("abcd@a.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
 
     @Test
-    public void signUpInvalidMail_gapsInStructure() {
+    public void signUpInvalidMail_gapsInStructure() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("user name@gmail.com");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("ab cd@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
 
     @Test
-    public void singUpInvalidMail_withoutDot() {
+    public void singUpInvalidMail_withoutDot() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("username@gmailcom ");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("abcd@gmailcom");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void singUpInvalidMail_withCapitalLetters()  {
+    public void singUpInvalidMail_withCapitalLetters() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("USERNAME@GMAIL.COM");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("ABCD@gmailcom");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Email Address does not appear to be valid!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void singUpInvalidMail_withDuplicatedMail() {
+    public void singUpInvalidMail_withDuplicatedMail() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput("demo3@gmail.com");
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("gloria1225@gmail.com");
+        this.signupPage.setAddressInput("Calea abc 22");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo8");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Error: E-Mail Address is already registered!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void signUp_3CharactersInAddress() {
+    public void signUp_3CharactersInAddress() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo10@gmail.com");
         this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo10");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
     }
     @Test
-    public void signUp_128CharactersInAddress()  {
+    public void signUp_128CharactersInAddress() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo13@gmail.com");
         this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(128));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo13");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
     }
     @Test
-    public void signUp_2CharactersInAddress()  {
+    public void signUp_2CharactersInAddress() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo16@gmail.com");
         this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(2));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo16");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);;
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Address 1 must be between 3 and 128 characters!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void signUp_129CharactersInAddress()  {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(129));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+    public void signUp_129CharactersInAddress() throws InterruptedException {
+        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(129));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo15@gmail.com");
+        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(128));
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo15");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Address 1 must be between 3 and 128 characters!", this.signupPage.getWarningMessage());
     }
 
 
     @Test
-    public void singUp_EmptyAddress() {
+    public void singUp_EmptyAddress() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(0));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo9@gmail.com");
+        this.signupPage.setAddressInput(" ");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo9");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Address 1 must be between 3 and 128 characters!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void signUp_NoRegionSelected() {
+    public void signUp_NoRegionSelected() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo18@gmail.com");
+        this.signupPage.setAddressInput("Romania");
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        this.signupPage.setRegionInput(" ");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(6));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        Thread.sleep(700);
+        this.signupPage.setRegionInput("");
+        this.signupPage.setZipCodeInput("123456");
+        this.signupPage.setLoginNameInput("demo18");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("×\n" +
                 "Please select a region / state!", this.signupPage.getWarningMessage());
     }
     @Test
-    public void signUp_3charactersZIPCode() {
+    public void signUp_3charactersZIPCode() throws InterruptedException {
         this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setLastNameInput("Amara");
+        this.signupPage.setEmailInput("demo20@gmail.com");
+        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(8));
+        this.signupPage.setCityInput("Timisoara");
         this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(700);
         this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(3));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
+        this.signupPage.setZipCodeInput(this.utilsHandler.getStringWithLength(3));
+        this.signupPage.setLoginNameInput("demo20");
+        this.signupPage.setPasswordInput("pass");
+        this.signupPage.setPasswordConfirmInput("pass");
         this.signupPage.clickPrivacyPolicyCheckBox();
         this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Thread.sleep(500);
         Assert.assertEquals("YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
-    }
-    @Test
-    public void signUp_10charactersZIPCode() {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(10));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.clickPrivacyPolicyCheckBox();
-        this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Assert.assertEquals("YOUR ACCOUNT HAS BEEN CREATED!", this.successSignUpPage.getSuccessPageTitle());
-    }
-    @Test
-    public void signUp_2CharactersZIPCode() {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(2));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.clickPrivacyPolicyCheckBox();
-        this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Assert.assertEquals("×\n" +
-                "Zip/postal code must be between 3 and 10 characters!", this.signupPage.getWarningMessage());
-    }
-    @Test
-    public void signUp_11CharactersZIPCode() {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(11));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.clickPrivacyPolicyCheckBox();
-        this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Assert.assertEquals("×\n" +
-                "Zip/postal code must be between 3 and 10 characters!", this.signupPage.getWarningMessage());
-    }
-    @Test
-    public void signUp_NoCharacterZIPCode() {
-        this.signupPage.setFirstNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setLastNameInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setEmailInput(this.utilsHandler.getRandomeEmail);
-        this.signupPage.setAddressInput(this.utilsHandler.getStringWithLength(3));
-        this.signupPage.setCityInput(this.utilsHandler.getStringWithLength(8));
-        this.signupPage.setCountryInput("Romania");
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        this.signupPage.setRegionInput("Timis");
-        this.signupPage.setZipCodeInput(this.utilsHandler.getRandomNumber(0));
-        this.signupPage.setLoginNameInput(this.utilsHandler.getAlphaNumericValue(8));
-        this.signupPage.setPasswordInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.setPasswordConfirmInput(this.utilsHandler.getStringWithLength(5));
-        this.signupPage.clickPrivacyPolicyCheckBox();
-        this.signupPage.clickContinueButton();
-        chromeDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Assert.assertEquals("×\n" +
-                "Zip/postal code must be between 3 and 10 characters!", this.signupPage.getWarningMessage());
     }
 
 }

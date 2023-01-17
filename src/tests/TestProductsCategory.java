@@ -46,12 +46,13 @@ public class TestProductsCategory extends TestBase {
         this.productsCategoryPage.clickOnProduct(3);
         Assert.assertEquals(chromeDriver.getTitle(), "BeneFit Girl Meets Pearl");
     }
+
     @Test
-    public void openReviewSection(){
+    public void openReviewSection() {
         this.categoryMenuPage.hoverOverElement(2);
         this.categoryMenuPage.clickToSubmenuCategory(2, 1);
         this.productsCategoryPage.hoverOverProduct(3);
-       this.productsCategoryPage.clickOnWriteReview(2, 3);
+        this.productsCategoryPage.clickOnWriteReview(2, 3);
         Assert.assertEquals(chromeDriver.getTitle(), "Shoes");
     }
 

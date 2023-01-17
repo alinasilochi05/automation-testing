@@ -79,6 +79,7 @@ public class TestSideMenu extends TestBase {
         this.sideMenuPage.selectCategoryFromSideMenu(9);
         Assert.assertEquals(this.notificationPage.getNotificationPageTitle(), this.notificationPage.notificationSuccessTitle);
     }
+
     @Test
     public void openLogoutCategory() {
         this.sideMenuPage.selectCategoryFromSideMenu(9);

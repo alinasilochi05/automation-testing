@@ -47,7 +47,8 @@ public class ProductsCategoryPage {
     public void clickOnWriteReview(int categoryNumber, int reviewNumber) {
         WebElement selectReview = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div/div/div/div[%d]/div[%d]/div[2]/div[1]/a[2]", categoryNumber, reviewNumber)));
     }
-    public String getPrice(){
+
+    public String getPrice() {
         return chromeDriver.findElement(price).getText();
     }
 }

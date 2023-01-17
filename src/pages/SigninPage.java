@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SigninPage {
 
@@ -29,8 +30,9 @@ public class SigninPage {
         this.chromeDriver.findElement(loginButton).click();
     }
 
-    public String getWarningMessage(){
-       return chromeDriver.findElement(warning).getText();
+    public String getWarningMessage() {
+        return chromeDriver.findElement(warning).getText().substring(2);
     }
+
     public String warningMessage = "Error: Incorrect login or password provided.";
 }

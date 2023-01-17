@@ -12,7 +12,7 @@ public class EditAccountDetailsPage {
     By emailInput = By.id("AccountFrm_email");
     By continueButton = By.xpath("//*[@id=\"AccountFrm\"]/div[2]/div/button");
     By backButton = By.xpath("//*[@id=\"AccountFrm\"]/div[2]/div/a");
-    By successMessage =  By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
+    By successMessage = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
     public String editDetailsSuccessTitle = "MY ACCOUNT INFORMATION";
 
 

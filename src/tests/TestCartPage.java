@@ -33,13 +33,13 @@ public class TestCartPage extends TestBase {
         this.chromeDriver.get(Urls.cartPage);
     }
 
-    @Test (priority = 2)
+    @Test(priority = 2)
     public void goToCheckout() {
         this.cartPage.clickToCheckoutButton();
         Assert.assertEquals(this.checkoutPage.getSuccessTitle(), this.cartPageSuccessTitle);
     }
 
-    @Test (priority = 1)
+    @Test(priority = 1)
     public void changeQuantityOfProduct() throws InterruptedException {
         int quantity = 2;
         this.cartPage.deleteValueFromInput();
@@ -48,14 +48,16 @@ public class TestCartPage extends TestBase {
         Thread.sleep(200);
         Assert.assertEquals(this.cartPage.getTotalPrice(), this.cartPage.calculateFinalPrice(quantity));
     }
+
     @Test(priority = 1)
-    public void changeQuantity_InvalidValue_Letter()  {
+    public void changeQuantity_InvalidValue_Letter() {
         String quantity = "a";
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput(quantity);
         this.cartPage.clickToUpdateButton();
         Assert.assertEquals(this.checkoutPage.getWarningMessage(), this.cartPage.expectedWarning);
     }
+
     @Test(priority = 1)
     public void changeQuantity_InvalidValue_LetterAndNumbers() throws InterruptedException {
         this.cartPage.deleteValueFromInput();
@@ -63,6 +65,7 @@ public class TestCartPage extends TestBase {
         this.cartPage.clickToUpdateButton();
         Assert.assertEquals(this.cartPage.getValueFromInput(), true);
     }
+
     @Test(priority = 1)
     public void changeQuantity_InvalidValue_Decimals() throws InterruptedException {
         this.cartPage.deleteValueFromInput();
@@ -71,8 +74,9 @@ public class TestCartPage extends TestBase {
         this.cartPage.clickToUpdateButton();
         Assert.assertEquals(this.checkoutPage.getWarningMessage(), this.cartPage.expectedWarning);
     }
+
     @Test(priority = 1)
-    public void changeQuantity_InvalidValue_NegativeNumber()  {
+    public void changeQuantity_InvalidValue_NegativeNumber() {
         this.cartPage.deleteValueFromInput();
         this.cartPage.setQuantityInput("-1");
         this.cartPage.clickToUpdateButton();

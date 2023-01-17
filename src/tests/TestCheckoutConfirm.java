@@ -19,17 +19,20 @@ public class TestCheckoutConfirm extends TestBase {
         this.navBarPage = new NavBarPage(chromeDriver);
         this.successCheckoutPage = new SuccessCheckoutPage(chromeDriver);
     }
+
     @BeforeTest
     public void setupBeforeTest() {
         this.chromeDriver.get(Urls.checkoutConfirmation);
     }
-    @Test (priority = 1)
+
+    @Test(priority = 1)
     public void confirmOrder() {
         this.checkoutPage.clickOnConfirmOrder();
         Assert.assertEquals(this.successCheckoutPage.getSuccessOrderTitle(), "CHECKOUT CONFIRMATION");
     }
-    @Test (priority = 1)
-    public void goToPreviousPage(){
+
+    @Test(priority = 1)
+    public void goToPreviousPage() {
         this.checkoutPage.clickOnBackButton();
         Assert.assertEquals(chromeDriver.getTitle(), "Payment Information");
     }

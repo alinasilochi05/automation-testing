@@ -1,5 +1,6 @@
 package tests;
 
+import constants.Urls;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -23,7 +24,7 @@ public class TestNavBar extends TestBase {
     CheckoutPage checkoutPage;
 
     public TestNavBar() {
-        super();
+        super(Urls.signin, true, true);
         this.navBarPage = new NavBarPage(chromeDriver);
         this.editAccountDetailsPage = new EditAccountDetailsPage(chromeDriver);
         this.searchPage = new SearchPage(chromeDriver);
@@ -155,8 +156,9 @@ public class TestNavBar extends TestBase {
         this.navBarPage.SmallScreen_selectCategoryFromMainMenu(6);
         Assert.assertEquals(this.checkoutPage.getSuccessTitle(), this.checkoutPage.successTitleCheckout);
     }
+
     @Test
-    public void logoFunctionality(){
+    public void logoFunctionality() {
         this.navBarPage.clickOnLogo();
         Assert.assertEquals(chromeDriver.getTitle(), "A place to practice your automation skills!");
     }

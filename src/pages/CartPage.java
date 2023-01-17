@@ -59,14 +59,17 @@ public class CartPage {
     public float calculateFinalPrice(float quantity) {
         return quantity * this.getUnitPrice();
     }
-    public String getWarningMessage(){
-      return chromeDriver.findElement(warning).getText();
+
+    public String getWarningMessage() {
+        return chromeDriver.findElement(warning).getText();
     }
+
     public String successTitleCart = "SHOPPING CART";
     public String expectedWarning = "Your shopping cart is empty!\n" +
             "Continue";
-    public int getValueFromInput(){
-       return Integer.parseInt(this.chromeDriver.findElement(quantityInput).getText());
+
+    public int getValueFromInput() {
+        return Integer.parseInt(this.chromeDriver.findElement(quantityInput).getText());
     }
 
 }

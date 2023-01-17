@@ -60,7 +60,8 @@ public class IndividualProductPage {
     public String getTextFromRemoveFromWishlist() {
         return chromeDriver.findElement(removeFromWishList).getText();
     }
-    public void clickOnAddToCartButton(){
+
+    public void clickOnAddToCartButton() {
         this.chromeDriver.findElement(addToCart).click();
     }
 

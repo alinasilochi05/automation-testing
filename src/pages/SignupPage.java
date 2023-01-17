@@ -20,7 +20,7 @@ public class SignupPage {
     By passwordConfirmInput = By.id("AccountFrm_confirm");
     By continueRegisterButton = By.xpath("//*[@id=\"AccountFrm\"]/div[5]/div/div/button");
     By privacyPolicyCheckBox = By.xpath("//*[@id=\"AccountFrm_agree\"]");
-    By warningMessage =  By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
+    By warningMessage = By.xpath("//*[@id=\"maincontainer\"]/div/div/div/div[1]");
 
 
     public SignupPage(WebDriver chromeDriver) {
@@ -82,7 +82,8 @@ public class SignupPage {
     public void setCityInput(String city) {
         this.chromeDriver.findElement(cityInput).sendKeys(city);
     }
-    public String getWarningMessage(){
+
+    public String getWarningMessage() {
         return chromeDriver.findElement(warningMessage).getText();
     }
 

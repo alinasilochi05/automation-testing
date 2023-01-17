@@ -17,10 +17,12 @@ public class NotificationPage {
     public String getNotificationPageTitle() {
         return chromeDriver.findElement(this.successTitleNotificationPage).getText();
     }
-    public void clickOnNewsletterCheckbox(){
+
+    public void clickOnNewsletterCheckbox() {
         this.chromeDriver.findElement(newsletterCheckBox).click();
     }
-    public void clickOnContinueButton(){
+
+    public void clickOnContinueButton() {
         this.chromeDriver.findElement(continueButton).click();
     }
 }

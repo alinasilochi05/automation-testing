@@ -32,7 +32,8 @@ public class ManageAddressBookPage {
         WebElement deleteButton = chromeDriver.findElement(By.xpath(String.format("//*[@id=\"maincontainer\"]/div/div[1]/div/div[2]/div[%d]/table/tbody/tr/td[2]/button[2]", buttonNumber)));
         deleteButton.click();
     }
-    public void scrollDown(){
+
+    public void scrollDown() {
         chromeDriver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
     }
 }

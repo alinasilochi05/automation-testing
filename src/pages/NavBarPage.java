@@ -45,7 +45,7 @@ public class NavBarPage {
         selectCategory.selectByIndex(index);
     }
 
-    public void clickOnLogo(){
+    public void clickOnLogo() {
         chromeDriver.findElement(logo).click();
     }
 
