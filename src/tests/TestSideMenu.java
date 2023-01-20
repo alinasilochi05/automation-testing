@@ -50,7 +50,7 @@ public class TestSideMenu extends TestBase {
         Assert.assertEquals(this.changePasswordPage.getChangePasswordTitlePage(), this.changePasswordPage.changePasswordSuccessTitle);
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void openManageAddressBookCategory() {
         this.sideMenuPage.selectCategoryFromSideMenu(5);
         Assert.assertEquals(this.manageAddressBookPage.getAddressBookTitlePage(), this.manageAddressBookPage.manageAddressSuccessTitle);
@@ -62,7 +62,7 @@ public class TestSideMenu extends TestBase {
         Assert.assertEquals(this.orderHistoryPage.getOrderHistoryPageTitle(), this.orderHistoryPage.orderHistorySuccessTitle);
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void openTransactionCategory() {
         this.sideMenuPage.selectCategoryFromSideMenu(7);
         Assert.assertEquals(this.transactionHistoryPage.getTransactionHistoryPageTitle(), this.transactionHistoryPage.transactionHistorySuccessTitle);
@@ -74,7 +74,7 @@ public class TestSideMenu extends TestBase {
         Assert.assertEquals(this.downloadsPage.getDownloadsPageTitle(), this.downloadsPage.downloadsSuccessTitle);
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void openNotificationCategory() {
         this.sideMenuPage.selectCategoryFromSideMenu(9);
         Assert.assertEquals(this.notificationPage.getNotificationPageTitle(), this.notificationPage.notificationSuccessTitle);
